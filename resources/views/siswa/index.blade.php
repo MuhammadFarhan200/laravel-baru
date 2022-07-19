@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                @include('layouts/_flash')
                 <div class="card">
                     <div class="card-header">
                         Data Siswa
@@ -11,7 +12,7 @@
                             Tambah Data
                         </a>
                     </div>
-                    @include('layouts/_flash')
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table align-middle" id="dataTable">

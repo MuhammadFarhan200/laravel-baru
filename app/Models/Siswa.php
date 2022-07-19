@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model
 {
+    
     use HasFactory;
-    // field apa saja yang bisa di isi
+    // Field apa saja yang bisa diisi
     public $fillable = ['nama', 'nis', 'agama', 'jenis_kelamin', 'alamat', 'tgl_lahir'];
-    // membuat fitur created_at(kapan data dibuat) & updated_at (kapan data diedit)
-    // aktif
+    // Membuat fitur created_at(kapan data dibuat) & updated_at (kapan data diedit)
+    // Aktif
     public $timestamps = true;
 
 }
