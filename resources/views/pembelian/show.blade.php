@@ -17,7 +17,7 @@
                         <div class="mb-3">
                             <label class="form-label">Tanggal Pembelian</label>
                             <input type="text" class="form-control " name="tanggal_pembelian"
-                                value="{{ $pembelian->tanggal_pembelian }}" readonly>
+                                value="{{ date('d M Y', strtotime($pembelian->tanggal_pembelian)) }}" readonly>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nama barang</label>
