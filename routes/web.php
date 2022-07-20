@@ -2,6 +2,8 @@
 <?php
 
 // panggil controller Siswa
+
+use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +28,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // route siswa
 Route::resource('siswa', SiswaController::class);
+
+// Route Pembelian
+Route::resource('pembelian', PembelianController::class);
