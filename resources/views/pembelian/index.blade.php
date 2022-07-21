@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Pembelian')
 
 @section('content')
     <div class="container">
@@ -37,7 +38,7 @@
                                             <td>{{ date('d M Y', strtotime($data->tanggal_pembelian)) }}</td>
                                             <td>{{ $data->nama_barang }}</td>
                                             <td>Rp{{ number_format($data->harga_satuan, 0, ',', '.') }}</td>
-                                            <td>{{ $data->jumlah_barang }}</td>
+                                            <td>{{ number_format($data->jumlah_barang, 0, ',', '.') }}</td>
                                             <td>Rp{{ number_format($data->total_harga, 0, ',', '.') }}</td>
                                             <td>
                                                 <form action="{{ route('pembelian.destroy', $data->id) }}" method="post">

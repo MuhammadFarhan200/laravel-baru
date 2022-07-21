@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
 
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
@@ -23,10 +23,10 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('DataTables/datatables.min.css') }}">
 </head>
@@ -47,13 +47,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @guest
+                        @else
+                            <li class="nav-item">
+                                <a href="{{ route('siswa.index') }}" class="nav-link">Siswa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('pembelian.index') }}" class="nav-link">Pembelian</a>
+                            </li>
+                        @endguest
                         {{-- Menu dikiri --}}
-                        <li class="nav-item">
-                            <a href="{{ route('siswa.index') }}" class="nav-link">Siswa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pembelian.index') }}" class="nav-link">Pembelian</a>
-                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

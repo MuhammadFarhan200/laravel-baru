@@ -48,8 +48,8 @@ class PembelianController extends Controller
             'nama_pembeli' => 'required',
             'tanggal_pembelian' => 'required',
             'nama_barang' => 'required',
-            'harga_satuan' => 'required',
-            'jumlah_barang' => 'required'
+            'harga_satuan' => 'required|numeric',
+            'jumlah_barang' => 'required|numeric'
         ]);
 
         $pembelian = new Pembelian();
@@ -103,8 +103,8 @@ class PembelianController extends Controller
             'nama_pembeli' => 'required',
             'tanggal_pembelian' => 'required',
             'nama_barang' => 'required',
-            'harga_satuan' => 'required',
-            'jumlah_barang' => 'required'
+            'harga_satuan' => 'required|numeric',
+            'jumlah_barang' => 'required|numeric'
         ]);
 
         $pembelian = Pembelian::findOrFail($id);
@@ -113,6 +113,7 @@ class PembelianController extends Controller
         $pembelian->nama_barang = $request->nama_barang;
         $pembelian->harga_satuan = $request->harga_satuan;
         $pembelian->jumlah_barang = $request->jumlah_barang;
+        // Logic
         $pembelian->total_harga = $request->harga_satuan * $request->jumlah_barang;
         $pembelian->save();
         return redirect()->route('pembelian.index')

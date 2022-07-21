@@ -45,7 +45,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Harga Satuan</label>
-                                <input type="text" class="form-control @error('harga_satuan') is-invalid @enderror"
+                                <input type="number" class="form-control @error('harga_satuan') is-invalid @enderror"
                                     name="harga_satuan" value="{{ $pembelian->harga_satuan }}">
                                 @error('harga_satuan')
                                     <span class="invalid-feedback" role="alert">
@@ -55,7 +55,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Jumlah Barang</label>
-                                <input type="text" class="form-control @error('total_harga') is-invalid @enderror"
+                                <input type="number" class="form-control @error('total_harga') is-invalid @enderror"
                                     name="jumlah_barang" value="{{ $pembelian->jumlah_barang }}">
                                 @error('jumlah_barang')
                                     <span class="invalid-feedback" role="alert">
