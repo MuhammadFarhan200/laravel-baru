@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('DataTables/datatables.min.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
