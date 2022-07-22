@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Pembelian')
 
 @section('content')
     <div class="container">
@@ -43,8 +44,7 @@
                         </div>
                         <div class="mb-3">
                             <div class="d-grid gap-2">
-                                <a href="{{ route('pembelian.index') }}" class="btn btn-primary"
-                                    type="submit">Kembali</a>
+                                <a href="{{ route('pembelian.index') }}" class="btn btn-primary" type="submit">Kembali</a>
                             </div>
                         </div>
                     </div>

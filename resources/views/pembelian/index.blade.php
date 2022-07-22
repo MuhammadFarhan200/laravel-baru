@@ -1,5 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
 @section('title', 'Pembelian')
+@section('header', 'Data Pembelian')
 
 @section('content')
     <div class="container">

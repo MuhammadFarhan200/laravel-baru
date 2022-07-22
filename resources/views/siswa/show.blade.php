@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Siswa')
+@section('header', 'Data Siswa')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -24,8 +27,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Agama</label>
-                            <input type="text" class="form-control " name="nis" value="{{ $siswa->agama }}"
-                                readonly>
+                            <input type="text" class="form-control " name="nis" value="{{ $siswa->agama }}" readonly>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tanggal Lahir</label>
