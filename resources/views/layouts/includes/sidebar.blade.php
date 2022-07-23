@@ -68,7 +68,8 @@
                     </ul> --}}
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('siswa.index') }}" class="nav-link {{ $title === 'Siswa' ? 'active' : '' }}">
+                    <a href="{{ route('siswa.index') }}"
+                        class="nav-link {{ request()->routeIs('siswa.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Siswa
@@ -76,8 +77,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('wali.index') }}"
+                        class="nav-link {{ request()->routeIs('wali.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Wali
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('pembelian.index') }}"
-                        class="nav-link {{ $title === 'Pembelian' ? 'active' : '' }}">
+                        class="nav-link {{ request()->routeIs('pembelian.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Pembelian

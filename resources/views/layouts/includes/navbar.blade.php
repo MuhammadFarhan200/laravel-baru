@@ -7,10 +7,16 @@
         @guest
         @else
             <li class="nav-item">
-                <a href="{{ route('siswa.index') }}" class="nav-link">Siswa</a>
+                <a href="{{ route('siswa.index') }}"
+                    class="nav-link {{ request()->routeIs('siswa.index') ? 'active text-bold' : '' }}">Siswa</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('pembelian.index') }}" class="nav-link">Pembelian</a>
+                <a href="{{ route('wali.index') }}"
+                    class="nav-link {{ request()->routeIs('wali.index') ? 'active text-bold' : '' }}">Wali</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('pembelian.index') }}"
+                    class="nav-link {{ request()->routeIs('pembelian.index') ? 'active text-bold' : '' }}">Pembelian</a>
             </li>
         @endguest
     </ul>
