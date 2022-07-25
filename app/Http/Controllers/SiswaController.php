@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Siswa;
+use App\Models\Guru;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -32,7 +33,8 @@ class SiswaController extends Controller
     public function create()
     {
         //
-        return view('siswa.create');
+        $guru = Guru::all();
+        return view('siswa.create', compact('guru'));
     }
 
     /**
@@ -51,6 +53,7 @@ class SiswaController extends Controller
             'agama' => 'required',
             'tgl_lahir' => 'required',
             'alamat' => 'required',
+            'id_guru' => 'required',
         ]);
 
         $siswa = new Siswa();
@@ -60,6 +63,7 @@ class SiswaController extends Controller
         $siswa->agama = $request->agama;
         $siswa->tgl_lahir = $request->tgl_lahir;
         $siswa->alamat = $request->alamat;
+        $siswa->id_guru = $request->id_guru;
         $siswa->save();
         return redirect()->route('siswa.index')
             ->with('success', 'Data berhasil dibuat!');
@@ -86,7 +90,8 @@ class SiswaController extends Controller
     public function edit($id)
     {
         $siswa = Siswa::findOrFail($id);
-        return view('siswa.edit', compact('siswa'));
+        $guru = Guru::all();
+        return view('siswa.edit', compact('siswa', 'guru'));
 
     }
 
@@ -107,6 +112,7 @@ class SiswaController extends Controller
             'agama' => 'required',
             'tgl_lahir' => 'required',
             'alamat' => 'required',
+            'id_guru' => 'required',
         ]);
 
         $siswa = Siswa::findOrFail($id);
@@ -116,6 +122,7 @@ class SiswaController extends Controller
         $siswa->agama = $request->agama;
         $siswa->tgl_lahir = $request->tgl_lahir;
         $siswa->alamat = $request->alamat;
+        $siswa->id_guru = $request->id_guru;
         $siswa->save();
         return redirect()->route('siswa.index')
             ->with('success', 'Data berhasil diedit!');

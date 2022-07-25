@@ -19,7 +19,7 @@ class Wali extends Model
 
     // Method menampilkan image (foto)
     public function image() {
-        if ($this->foto && file_exists(public_path('image/wali/' . $this->foto))) {
+        if ($this->foto && file_exists(public_path('images/wali/' . $this->foto))) {
             return asset('images/wali/' . $this->foto);
         }
         else {

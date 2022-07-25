@@ -17,7 +17,7 @@ class WaliController extends Controller
     {
         // Memanggil data wali bersama dengan data siswa yang dibuat dari method 'Siswa' di model 'Wali'
         $wali = Wali::with('siswa')->get();
-        return view('wali.index', ['wali' => $wali], ['title' => 'Wali']);
+        return view('wali.index', ['wali' => $wali]);
     }
 
     /**
@@ -28,21 +28,15 @@ class WaliController extends Controller
     public function create()
     {
         $siswa = Siswa::all();
-        return view('wali.index', compact('siswa'));
+        return view('wali.create', compact('siswa'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
             'nama' => 'required',
             'id_siswa' => 'required|unique:walis',
-            'foto' => 'required|images|max:2048',
+            'foto' => 'required|image|max:2048',
         ]);
 
         $wali = new Wali();
@@ -60,24 +54,12 @@ class WaliController extends Controller
             ->with('succes', 'Data berhasil Dibuat!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $wali = Wali::findOrFail($id);
         return view('wali.show', compact('wali'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $wali = Wali::findOrFail($id);
@@ -85,16 +67,9 @@ class WaliController extends Controller
         return view('wali.edit', compact('wali', 'siswa'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        $validated = $request->validated([
+        $validated = $request->validate([
             'nama' => 'required',
             'id_siswa' => 'required',
             'foto' => 'required|image|max:2048',
@@ -116,17 +91,11 @@ class WaliController extends Controller
             ->with('succes', 'Data berhasil Dibuat!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $wali = Wali::findOrFail($id);
         $wali->deleteImage();
-        $article->delete();
+        $wali->delete();
         return redirect()->route('wali.index')
             ->with('succes', 'Data Berhasil Dibuat!');
     }

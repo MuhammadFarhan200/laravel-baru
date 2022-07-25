@@ -38,15 +38,15 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
        with font-awesome or any other icon font library -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
-                            {{-- <i class="right fas fa-angle-left"></i> --}}
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    {{-- <ul class="nav nav-treeview">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
@@ -65,11 +65,11 @@
                                 <p>Dashboard v3</p>
                             </a>
                         </li>
-                    </ul> --}}
-                </li>
+                    </ul>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('siswa.index') }}"
-                        class="nav-link {{ request()->routeIs('siswa.index') ? 'active' : '' }}">
+                        class="nav-link {{ request()->is('admin/siswa*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Siswa
@@ -78,7 +78,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('wali.index') }}"
-                        class="nav-link {{ request()->routeIs('wali.index') ? 'active' : '' }}">
+                        class="nav-link {{ request()->is('admin/wali*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Wali
@@ -87,7 +87,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('pembelian.index') }}"
-                        class="nav-link {{ request()->routeIs('pembelian.index') ? 'active' : '' }}">
+                        class="nav-link {{ request()->is('admin/pembelian*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Pembelian
@@ -95,6 +95,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('guru.index') }}"
+                        class="nav-link {{ request()->is('admin/guru*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Guru
+                        </p>
+                    </a>
+                </li>
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
@@ -626,7 +635,7 @@
                         <i class="nav-icon far fa-circle text-info"></i>
                         <p>Informational</p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" id="dataTable">
+                        <table class="table table-hover" id="dataTable">
                             <thead>
                                 <th>No</th>
                                 <th>Nama Wali</th>
@@ -35,10 +35,10 @@
                                         <form action="{{ route('wali.destroy', $data->id) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <a href="{{ route('wali.edit'), $data->id }}" class="btn btn-outline-success">
+                                            <a href="{{ route('wali.edit', $data->id) }}" class="btn btn-outline-success">
                                                 Edit
                                             </a> |
-                                            <a href="{{ route('wali.show'), $data->id }}" class="btn btn-outline-warning">
+                                            <a href="{{ route('wali.show', $data->id) }}" class="btn btn-outline-warning">
                                                 Show
                                             </a> |
                                             <button type="submit" class="btn btn-sm btn-outline-danger"

@@ -6,6 +6,7 @@
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\WaliController;
+use App\Http\Controllers\GuruController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,5 @@ Route::group(['prefix'=>'admin', 'middleware'=>['auth']], function(){
     Route::resource('siswa', SiswaController::class);
     Route::resource('pembelian', PembelianController::class);
     Route::resource('wali', WaliController::class);
+    Route::resource('guru', GuruController::class);
 });

@@ -8,15 +8,19 @@
         @else
             <li class="nav-item">
                 <a href="{{ route('siswa.index') }}"
-                    class="nav-link {{ request()->routeIs('siswa.index') ? 'active text-bold' : '' }}">Siswa</a>
+                    class="nav-link {{ request()->is('admin/siswa*') ? 'active text-bold' : '' }}">Siswa</a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('wali.index') }}"
-                    class="nav-link {{ request()->routeIs('wali.index') ? 'active text-bold' : '' }}">Wali</a>
+                    class="nav-link {{ request()->is('admin/wali*') ? 'active text-bold' : '' }}">Wali</a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('pembelian.index') }}"
-                    class="nav-link {{ request()->routeIs('pembelian.index') ? 'active text-bold' : '' }}">Pembelian</a>
+                    class="nav-link {{ request()->is('admin/pembelian]*') ? 'active text-bold' : '' }}">Pembelian</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('guru.index') }}"
+                    class="nav-link {{ request()->is('admin/guru*') ? 'active text-bold' : '' }}">Guru</a>
             </li>
         @endguest
     </ul>
